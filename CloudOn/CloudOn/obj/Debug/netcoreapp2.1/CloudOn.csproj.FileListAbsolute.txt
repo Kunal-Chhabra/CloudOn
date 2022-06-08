@@ -1,0 +1,14 @@
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\bin\Debug\netcoreapp2.1\CloudOn.deps.json
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\bin\Debug\netcoreapp2.1\CloudOn.runtimeconfig.json
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\bin\Debug\netcoreapp2.1\CloudOn.runtimeconfig.dev.json
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\bin\Debug\netcoreapp2.1\CloudOn.dll
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\bin\Debug\netcoreapp2.1\CloudOn.pdb
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.csproj.CoreCompileInputs.cache
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.RazorAssemblyInfo.cache
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.RazorAssemblyInfo.cs
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.AssemblyInfoInputs.cache
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.AssemblyInfo.cs
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.RazorTargetAssemblyInfo.cache
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.dll
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.pdb
+C:\Users\kunal.chhabra\Desktop\Final Project\CloudOn\CloudOn\obj\Debug\netcoreapp2.1\CloudOn.csprojAssemblyReference.cache
