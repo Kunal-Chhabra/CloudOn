@@ -197,37 +197,135 @@ const constants = {
   
   const form = document.getElementById("fo");
   console.log(form);
-  
-  function createFolder() {
-	  var data=new Date();
-	try
-	{debugger;
-	 fetch('http://localhost:57927/api/document', {
-	   body: JSON.stringify({
-        "dName": form.value,
-    "contentType": "text",
-    "size": 1900,
-    "createdBy": sessionStorage.getItem("id"),
-    "createdAt": data.toISOString(),
-    "folderId": sessionStorage.getItem("folderid"),
-    "isDeleted": null,
 
 
-	  }),
-	   method: 'POST',
-	   headers: {
-		'Content-Type': 'application/json'
-	  },
-	 }).then((folderCreateResponse) => {
-		console.log(folderCreateResponse);
-		 listFolders();
-	 });
-	}
-	catch(err)
-	{
-	  console.log(err);
-	}
+  async function createFolder() {
+
+   
+
+    try
+
+    {
+
+
+      var file=document.getElementById("file").files[0];
+
+      var data=new Date();
+
+     
+
+     
+
+
+
+
+var formData = new FormData();
+
+ formData.append("file",file);
+
+
+
+var requestOptions = {
+
+  method: 'POST',
+
+  body:formData,
+
+};
+
+
+
+await fetch("http://localhost:57927/api/document/upload/"+sessionStorage.getItem("id")+"/"+data.toISOString()+"/"+sessionStorage.getItem("folderid"), requestOptions)
+
+.then((fileCreateResponse) => {
+
+  console.log(fileCreateResponse);
+
+  listFolders();
+
+})
+
+ 
+
+    }
+
+    catch(err)
+
+    {
+
+      console.log(err);
+
+    }
+
   }
+
+
+
+
+  
+//   async function createFolder() {
+// 	  var data=new Date();
+// 	  var file=document.getElementById("file").files[0];
+// 	try
+// 	{
+// 	 fetch('http://localhost:57927/api/document', {
+// 	   body: JSON.stringify({
+//         "dName": form.value,
+//     "contentType": "text",
+//     "size": 1900,
+//     "createdBy": sessionStorage.getItem("id"),
+//     "createdAt": data.toISOString(),
+//     "folderId": sessionStorage.getItem("folderid"),
+//     "isDeleted": null,
+
+
+// 	  }),
+// 	   method: 'POST',
+// 	   headers: {
+// 		'Content-Type': 'application/json'
+// 	  },
+// 	 }).then((folderCreateResponse) => {
+// 		console.log(folderCreateResponse);
+// 		 listFolders();
+// 	 });
+// 	}
+// 	catch(err)
+// 	{
+// 	  console.log(err);
+// 	}
+//   }
+
+
+
+
+
+//   async function createFolder() {
+//     try{
+//     //   var dname=document.getElementById("filename1").value;
+//       var file=document.getElementById("file").files[0];   
+
+//       var abc=new Date();
+// var formData = new FormData();
+//  formData.append("file",file);
+
+// var requestOptions = {
+//   method: 'POST',
+//   body:formData,
+// };
+
+// await fetch("http://localhost:57927/api/document/upload/"+sessionStorage.getItem("id")+"/"+abc.toISOString()+"/"+sessionStorage.getItem("folderid"), requestOptions)
+
+// .then((fileCreateResponse) => {
+//   console.log(fileCreateResponse);
+//   ListFiles();
+// })
+//     }
+//     catch(err)
+//     {
+//       console.log(err);
+//     }
+//   }
+
   
   function listFolders() {
 	try
@@ -262,7 +360,7 @@ const constants = {
   
 		let con='';
   
-		con += "<i class='bx bxs-folder-open'></i>";
+		con += "<i class='bx bxs-file-image' style='color:skyblue;'></i>";
   
 		con += "<br/><p style='color:black'><b>";
   
@@ -279,14 +377,17 @@ const constants = {
 		let con2='';
   
 		// con2+=`<button type="button" class='btn btn-success'  onclick="openfile()">Add file</button>&nbsp;`;
-  
-		// con2+=`<button type="button"  class='btn btn-danger' onclick='deletefolder(${folder.docId})' >Delete</button>`;
-		div2.classList.add("btn123");
+		// con2+=`<img src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/folder_delete.png" alt="img"  onclick='deletefolder(${folder.docId}>`
+		// con2 += `<i class='bx bxs-folder-open'  onclick="openfile(${folder.id})" style="cursor:pointer;margin-left:5%;color:navy;font-size:150%"></i>&nbsp;`;
+		con2 += `<i class='bx bx-error-circle'  onclick='viewdetails(${folder.docId},"${folder.dName}",${folder.createdBy},"${folder.createdAt}")' style="cursor:pointer;margin-left:10%;color:green;font-size:150%"></i>`;
+
+		con2 += `<i class='bx bx-trash' onclick ='popup(${folder.docId})' style="cursor:pointer;margin-left:50%;color:red;font-size:150%"></i>`;
+        div2.classList.add("btn123");
   
 		div2.innerHTML=con2;
   
-	 
-  
+		// <i class='bx bx-x-circle'></i>
+		// <i class='bx bxs-comment-x'></i>
 	   
   
 		
@@ -333,13 +434,10 @@ const constants = {
               let deleteurl = "http://localhost:57927/api/document/" + folder;
               fetch(deleteurl,requestOptions)
               .then(response=>response.text())
-              .then(result => console.log(result))
+			  .then(result => console.log(listFolders()))
               .catch(error => console.log('error', error));
-               location.reload();  
+               
               }
-
-
-              
 				  function search1() {
 					try
 					{
@@ -379,7 +477,7 @@ const constants = {
 				  
 						let con='';
 				  
-						con += "<i class='bx bxs-folder-open'></i>";
+						con += "<i class='bx bxs-folder-open' style='color:skyblue;'></i>";
 				  
 						con += "<br/><p style='color:black'><b>";
 				  
@@ -395,10 +493,10 @@ const constants = {
 				  
 						let con2='';
 				  
-						con2+=`<button class='btn btn-success'  onclick="openfile(${folder.id})">Open folder</button>&nbsp;`;
-				  
-						con2+=`<button class='btn btn-danger' onclick='deletefolder(${folder.id})' >Delete</button>`;
-						div2.classList.add("btn123");
+						con2 += `<i class='bx bx-error-circle'  onclick='viewdetails(${folder.id},"${folder.fName}",${folder.createdBy},"${folder.createdAt}")' style="cursor:pointer;margin-left:10%;color:green;font-size:150%"></i>`;
+
+						con2 += `<i class='bx bx-trash' onclick ='popup(${folder.id})' style="cursor:pointer;margin-left:50%;color:red;font-size:150%"></i>`;
+										div2.classList.add("btn123");
 				  
 						div2.innerHTML=con2;
 						// div.innerHTML = folder.fName;
@@ -422,13 +520,111 @@ const constants = {
                     sessionStorage.clear();
                     window.location.href="index.html";
                 }
+				function popup(folder) {
+					Swal.fire({
+						title: 'Are you sure?',
+						text: "You won't be able to revert this!",
+						icon: 'warning',
+						showCancelButton: true,
+						confirmButtonColor: '#3085d6',
+						cancelButtonColor: '#d33',
+						confirmButtonText: 'Yes, delete it!'
+				
+					}).then((result) => {
+						if (result.isConfirmed) {
+							Swal.fire(
+								
+							   
+								deletefolder(folder),
+								'Deleted!',
+								'Your file has been deleted.',
+								'success'
+							)
+						}
+					})
+				}
+				
+				function viewdetails(docId,dName,createdBy,createdAt){
+					
+				//    console.log(folderid);
+				   Swal.fire(
+					   "File Id : " + docId + "\n"+
+					   "File Name : " + dName +"\n"+
+					   "Created By : " + createdBy + "\n"+
+					   "Created At : " + createdAt + "\n" 
+				   )
+			   }
+
+
+			//    async function createFolder() {
+
+   
+
+			// 	try
+			
+			// 	{
+			
+			
+			
+			
+			
+			
+			
+			// 	  var dName=document.getElementById("filename1").value;
+			
+			// 	  var file=document.getElementById("file").files[0];
+			
+				 
+			
+			// 	  var abc=new Date();
+			
+				 
+			
+				 
+			
+			
+			
+			
+			// var formData = new FormData();
+			
+			//  formData.append("file",file);
+			
+			
+			
+			// var requestOptions = {
+			
+			//   method: 'POST',
+			
+			//   body:formData,
+			
+			// };
+			
+			
+			
+			// await fetch("http://localhost:57927/api/document/upload/"+sessionStorage.getItem("id")+"/"+abc.toISOString()+"/"+sessionStorage.getItem("folderId"), requestOptions)
+			
+			// .then((fileCreateResponse) => {
+			
+			//   console.log(fileCreateResponse);
+			
+			//   listFolders();
+			
+			// })
+			
+			 
+			
+			// 	}
+			
+			// 	catch(err)
+			
+			// 	{
+			
+			// 	  console.log(err);
+			
+			// 	}
+			
+			//   }
 
 
 
 
-
-
-
-
-
-				  

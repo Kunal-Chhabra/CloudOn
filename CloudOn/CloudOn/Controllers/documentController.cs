@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-
 using System.Threading.Tasks;
 using CloudOn.Models;
 using CloudOn.RequestModel;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 
 namespace CloudOn.Controllers
 {
@@ -16,9 +18,13 @@ namespace CloudOn.Controllers
     {
         // GET: api/document
         private readonly cloudOnContext _d;
-        public documentController(cloudOnContext doc)
+        private readonly IHostingEnvironment _env;
+        private object _environment;
+
+        public documentController(cloudOnContext doc, IHostingEnvironment environment)
         {
             _d = doc;
+            _env = environment;
         }
         [HttpGet]
         public IActionResult Get3()
@@ -82,6 +88,51 @@ namespace CloudOn.Controllers
             var result = _d.Documents.Where(obj => (obj.DName.Contains(value) && obj.FolderId == id));
             return Ok(result);
         }
+        /*---------------------------------------------------------------------*/
+
+
+        
+[HttpPost]
+[Route("upload/{createdBy}/{createdAt}/{folderId}")]
+        public IActionResult post(int createdBy, DateTime createdAt, int folderId)
+        {
+            //long fsize = files.Sum(f => f.Length);
+            if (Request.Form.Files.Count() > 0)
+           {
+                string abc = "aaa";
+            }
+            IFormFile file = Request.Form.Files[0]; var RootPath = Path.Combine(_env.ContentRootPath, "Resources", "Documents");
+            if (!Directory.Exists(RootPath))
+                Directory.CreateDirectory(RootPath);
+            for (var i = 0; i < Request.Form.Files.Count(); i++)
+            {
+                var filePath = Path.Combine(RootPath, file.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    Documents obj = new Documents();
+                    {
+                        obj.DName = file.FileName;
+                        obj.ContentType = file.ContentType;
+                        obj.Size = (int)file.Length;
+                        obj.CreatedBy = createdBy;
+                        obj.CreatedAt = createdAt;
+                        obj.FolderId = folderId;
+                        obj.IsDeleted = false;
+                    };
+                    file.CopyTo(stream);
+                    _d.Documents.Add(obj);
+                    _d.SaveChanges();
+                }
+            }
+            //return Ok(new { count = files.Count, fsize });
+            return Ok();
+        }
+
+
+
+
+
+
 
 
 

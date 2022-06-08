@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
 	margin: 0;
@@ -57,7 +57,7 @@ body {
 	left: 0;
 	width: 280px;
 	height: 100%;
-	background: var(--light);
+	background-color:rgb(123, 211, 214);
 	z-index: 2000;
 	font-family: var(--lato);
 	transition: .3s ease;
@@ -76,11 +76,11 @@ body {
 	height: 56px;
 	display: flex;
 	align-items: center;
-	color: var(--blue);
+	color: rgb(6, 88, 88);
 	position: sticky;
 	top: 2%;
 	margin-left: 10%;
-	background: var(--light);
+	background-color:rgb(123, 211, 214);
 	z-index: 500;
 	padding-bottom: 20px;
 	box-sizing: content-box;
@@ -132,6 +132,7 @@ body {
 	border: 1px solid #888;
 	width: 35%;
 	border-radius: 20px;
+	
   }
 
   .modal-title{
@@ -162,8 +163,7 @@ body {
 	  width: 20%;
 	  
   }
-  .upload-files{
-	background-color: rgb(111, 111, 223);
+  .upload-files{background-color:rgb(123, 211, 214);
 	border: none;
 	color: white;
 	border-radius: 1rem;
@@ -230,11 +230,11 @@ body {
 #sidebar .side-menu li a {
 	width: 100%;
 	height: 100%;
-	background: var(--light);
+	background-color:rgb(123, 211, 214);
 	display: flex;
 	align-items: center;
 	border-radius: 48px;
-	font-size: 16px;
+	font-size: 20px;
 	color: var(--dark);
 	white-space: nowrap;
 	overflow-x: hidden;
@@ -250,7 +250,7 @@ body {
 	color: var(--red);
 }
 #sidebar .side-menu.top li a:hover {
-	color: var(--blue);
+	color: white;
 }
 #sidebar .side-menu li a .bx {
 	min-width: calc(60px  - ((4px + 6px) * 2));
@@ -269,6 +269,7 @@ body {
 	width: calc(100% - 280px);
 	left: 280px;
 	transition: .3s ease;
+	overflow: hidden;
 }
 #sidebar.hide ~ #content {
 	width: calc(100% - 60px);
@@ -310,7 +311,7 @@ body {
 	color: var(--dark);
 }
 #content nav .nav-link {
-	font-size: 16px;
+	font-size: 20px;
 	transition: .3s ease;
 }
 #content nav .nav-link:hover {
@@ -377,6 +378,7 @@ body {
 	object-fit: cover;
 	border-radius: 50%;
 }
+/* }
 #content nav .switch-mode {
 	display: block;
 	min-width: 50px;
@@ -399,7 +401,7 @@ body {
 }
 #content nav #switch-mode:checked + .switch-mode::before {
 	left: calc(100% - (25px - 4px) - 2px);
-}
+} */
 /* NAVBAR */
 
 
@@ -431,6 +433,13 @@ body {
 
 	#content nav .nav-link {
 		display: none;
+	}
+	#fo{
+		width: 200px;
+		margin-left: 400%;
+	}
+	.modal .modal-content{
+		width: 45%;
 	}
 }
 
@@ -488,11 +497,11 @@ article{
 	text-align-last: center;
 	height: 170px;
 	width: 250px;
+	
 	display: inline-flex;
 	margin:20px;
 	border:2px solid black;
 	 border-radius: 10px;
-	/* background-image: url("https://icons.iconarchive.com/icons/hopstarter/soft-scraps/128/Folder-icon.png"); */
 	text-align:justify;
 	text-decoration: none;
 	font-size: 18px;
@@ -509,108 +518,8 @@ article{
 	top: 20px;
 }
 
-
-.dropdown {
-	display: inline-block;
-	position: relative;
-  }
-  
-  .dd-button {
-	display: inline-block;
-	/* border: 1px solid gray; */
-	/* border-radius: 4px; */
-	/* padding: 10px 30px 10px 20px; */
-	/* background-color: #ffffff; */
-	cursor: pointer;
-	white-space: nowrap;
-  }
-  
-  
-  /* .dd-button:hover {
-  
-  }
-   */
-  
-  .dd-input {
-	display: none;
-  }
-  .btnn
-  {
-	position: relative;
-	left: 910px;
-  }
-  
-  .dd-menu {
-	position: absolute;
-	top: 100%;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	padding: 0;
-	margin: 2px 0 0 0;
-	box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
-	/* background-color: #ffffff; */
-	list-style-type: none;
-  }
-  
-  .dd-input + .dd-menu {
-	display: none;
-  } 
-  
-  .dd-input:checked + .dd-menu {
-	display: block;
-  } 
-  
-  .dd-menu li {
-	padding: 10px 20px;
-	cursor: pointer;
-	white-space: nowrap;
-  }
-  
-  .dd-menu li:hover {
-	background-color: #f6f6f6;
-  }
-  
-  .dd-menu li a {
-	display: block;
-	margin: -10px -20px;
-	padding: 10px 20px;
-	position: relative;
-	left: 20px;
-  
-  }
-  
-  .dd-menu li.divider{
-	padding: 0;
-	border-bottom: 1px solid #cccccc;
-  }
-  
-  
-  
-  
-  /* 
-  
-  */
-  
-  .btnn{
-	position: relative;
-	left: 990px;
-  
-  }
-  
-  .drop
-  {
-	position: relative;
-	left: 0px;
-	top: 0px;
-  }
-  
-  
-  #uploadbtn
-  {
-	color: black;
-  }
   .abc{
-	height:150px;
+	height:160px;
 
     width:240px;
 
@@ -621,6 +530,7 @@ article{
     border-radius:20px;
 
     display:flex;
+	/* border: 1px solid black; */
 
    
 
@@ -630,10 +540,17 @@ article{
   }
   .abc i{
 	  font-size: 100px;
+	  margin-left: 20%;
   }
   .abc2{
 	  display:inline-flex;
 	  flex-direction:column;
+	   border:1px solid white;
+	  margin-left: 2%;
+	  margin-top: 2%;
+	  border-radius: 1rem;
+	  box-shadow: 5px 10px 18px #545050;
+	  
   }
   .btn123 button{
 	background-color: blue;

@@ -3,47 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-
-	
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
 	<link rel="stylesheet" href="css.css">
-
 	<title>File</title>
-
-	<!-- <script>
-        function thisFileUpload() {
-            document.getElementById("file").click();
-        };
-</script> -->
-
 </head>
 <body>
-
-
-	<!-- SIDEBAR -->
+<!-- SIDEBAR -->
 	<section id="sidebar">
 		<a href="#" class="brand">
-			<!-- <i class='bx bxs-smile'></i> -->
-			<img src="./img/logo.png" alt="easyclass" class="bx" style="width: 50px;"/>
-
-			<span class="text">CloudOn</span>
-		</a>
-		<ul class="side-menu top">
-			<li>
-			
-<button id="myBtn" class="sign-btn text"><i class='bx bx-plus'></i>Add New</button>
-
+		<img src="./img/logo.png" alt="easyclass" class="bx" style="width: 50px;"/>
+        <span class="text">CloudOn</span>
+	     </a>
+		  <ul class="side-menu top">
+		<li>
+		<a id="myBtn" class="sign-btn text"><i class='bx bx-plus'></i>Add New</a>
 <!-- The Modal -->
-<div id="myModal" class="modal">
+        <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <!-- <span class="close">&times;</span>
-    <p>Some text in the Modal..</p> -->
+<!-- Modal content -->
+        <div class="modal-content">
+   
 
-	<div class="modal-header">
+	    <div class="modal-header">
         <h4 class="modal-title" id="exampleModalLongTitle">Add new</h4><br>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -57,13 +40,9 @@
 				  <p>OR</p><br>
 
 				  <input type="file" id="file" style="display:none;" />
-                  <button id="button" name="button" value="upload" class="upload-files" onclick="thisFileUpload();">Browse Files</button>
+                  <button id="button" name="button" value="upload"  class="upload-files" onclick="thisFileUpload();">Browse Files</button>
                   <br><br>
-
-                  <input id="fo" type="search" placeholder="Folder Name"><br><br>
-
                   <button class="upload-files" id="addfolder" onclick="createFolder()">Add File</button>
-				  			  
 
 			  </div>
 			  
@@ -78,23 +57,23 @@
 
 			</li>
 			<li class="active">
-				<a href="#">
+				<a href="./dashboard.html">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#">
 					<i class='bx bxs-videos'></i>
 					<span class="text">Videos</span>
 				</a>
-			</li>
-			<li>
+			</li> -->
+			<!-- <li>
 				<a href="#">
 					<i class='bx bx-photo-album'></i>
 					<span class="text">Photos</span>
 				</a>
-			</li>
+			</li> -->
 			<li>
 				<a href="#">
 					
@@ -144,18 +123,16 @@
 			</form>
 			<input type="checkbox" id="switch-mode" hidden>
 			<label for="switch-mode" class="switch-mode"></label>
-		
 		</nav>
 		
 		<div id="mainn">
-			
 		</div>
 
-		<!-- MAIN -->
+		
 	</section>
-	<!-- CONTENT -->
+	
 	
 <script src="file.js"></script>
-	 <!-- <script src="script.js"></script> -->
+	 
 </body>
 </html>

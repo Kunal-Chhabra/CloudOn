@@ -4,14 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Boxicons -->
+	
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-	<!-- CSS only -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
-<!-- JavaScript Bundle with Popper -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
-	<!-- My CSS -->
+	
 	<link rel="stylesheet" href="css.css">
 
 	<title>Dashboard</title>
@@ -22,6 +18,9 @@
         };
 </script> -->
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" id="theme-styles">
 </head>
 <body>
 
@@ -40,7 +39,7 @@
 				<!-- <input type="submit" value="Add New" class="sign-btn" /> -->
 
 				<!-- Trigger/Open The Modal -->
-<button id="myBtn" class="sign-btn text"><i class='bx bx-plus'></i>Add New</button>
+<a id="myBtn" class="sign-btn text"><i class='bx bx-plus'></i>Add New</a>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -69,7 +68,9 @@
                   <button id="button" name="button" value="upload" class="upload-files" onclick="thisFileUpload();">Browse Files</button>
                   <br><br>
 
-                  <input id="fo" type="search" placeholder="Folder Name"><br><br>
+                  <input id="fo" type="search" placeholder="Folder Name" style="width: 140px;"><br><br>
+				  <ul id="path">
+				</ul>
 
                   <button class="upload-files" id="addfolder" onclick="createFolder()">Add Folder</button>
 				  			  
@@ -78,7 +79,7 @@
 			  
 
 		  </div>
-		  <ul id="path"></ul>
+		  
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -96,20 +97,20 @@
 					<span class="text">Dashboard</span>
 				</a>
 			</li>
-			<li>
+			<!-- <li>
 				<a href="#">
 					<!-- <i class='bx bxs-shopping-bag-alt' ></i> -->
-					<i class='bx bxs-videos'></i>
+					<!-- <i class='bx bxs-videos'></i>
 					<span class="text">Videos</span>
 				</a>
 			</li>
-			<li>
-				<a href="#">
+			<li> -->
+				<!-- <a href="#">
 					<!-- <i class='bx bxs-doughnut-chart' ></i> -->
-					<i class='bx bx-photo-album'></i>
-					<span class="text">Photos</span>
-				</a>
-			</li>
+					<!-- <i class='bx bx-photo-album'></i> -->
+					<!-- <span class="text">Photos</span> -->
+				<!-- </a> -->
+			<!-- </li>   -->
 			<li>
 				<a href="#">
 					<!-- <i class='bx bxs-message-dots' ></i> -->
